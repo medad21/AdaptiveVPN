@@ -85,8 +85,8 @@ class SingBoxProfileValidatorTest {
 
     @Test fun rejectsMultipleTunInbounds() {
         val input = validTun.replace(
-            "          }],\n          \"outbounds\":",
-            "          }, {\n            \"type\": \"tun\",\n            \"address\": [\"172.19.0.2/30\", \"fdfe:dcba:9876::2/126\"],\n            \"auto_route\": true\n          }],\n          \"outbounds\":"
+            "  }],\n  \"outbounds\":",
+            "  }, {\n    \"type\": \"tun\",\n    \"address\": [\"172.19.0.2/30\", \"fdfe:dcba:9876::2/126\"],\n    \"auto_route\": true\n  }],\n  \"outbounds\":"
         )
         assertTrue(input.contains("172.19.0.2/30"))
         assertFalse(SingBoxProfileValidator.validate(input).valid)
