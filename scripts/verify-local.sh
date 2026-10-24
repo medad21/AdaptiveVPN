@@ -32,6 +32,8 @@ kotlinc app/src/main/java/com/adaptivevpn/app/vpn/TrafficProbe.kt tools-traffic-
   -include-runtime -d build-local/traffic-probe-smoke.jar
 java -jar build-local/traffic-probe-smoke.jar
 
+scripts/run-core-tests-local.sh
+
 if ! command -v gradle >/dev/null 2>&1; then
   echo 'NOTICE: Gradle is missing; Android compile/APK tests were NOT run.'
   echo 'Use GitHub Actions workflow .github/workflows/android-ci.yml or install Gradle 8.9+ and Android SDK 35.'

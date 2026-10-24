@@ -14,6 +14,9 @@ AdaptiveVPN is an Android-first Kotlin project intended to become an adaptive mu
 - Post-start HTTPS reachability probe against two independent endpoints. Results are kept separate from a real leak audit; the probe never stores response bodies or public IP details.
 - GitHub Actions workflow for Android unit tests and a debug APK build attempt.
 
+## Control-plane logic (0.16.0, core module only)
+Pure Kotlin decision logic with unit tests: evidence-based failure classification, bounded recovery (backoff, circuit breaker, hysteresis), a gated protocol registry, and security-gated path scoring. See `CHANGELOG.md` for details. **This logic is not yet connected to the Android service or UI**, so the installed app does not behave differently yet.
+
 ## Critical status: not verified for real traffic
 This is **not yet a usable or verified VPN**. The `libbox` bridge has not been compiled/run against the actual pinned AAR in this environment. Its platform interface still has unverified/unsupported optional callbacks and config combinations, and no device-level traffic/DNS/leak tests have been run. Service start is reported as `STARTED_UNVERIFIED`; a successful HTTPS probe is reported separately as `TRAFFIC_PROBE_PASSED` and does not prove absence of DNS/IP leaks. Do not use this build for sensitive traffic.
 
