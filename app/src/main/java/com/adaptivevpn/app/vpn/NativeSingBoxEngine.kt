@@ -499,7 +499,7 @@ class NativeSingBoxEngine : SingBoxEngine {
             val latch = CountDownLatch(1)
             val cancellation = CancellationSignal()
             var failure: Throwable? = null
-            val callback = object : DnsResolver.Callback<ByteArray>() {
+            val callback = object : DnsResolver.Callback<ByteArray> {
                 override fun onAnswer(answer: ByteArray, rcode: Int) {
                     try {
                         if (rcode == 0) invokeRequired(exchangeContext, "rawSuccess", answer)
@@ -536,7 +536,7 @@ class NativeSingBoxEngine : SingBoxEngine {
             val latch = CountDownLatch(1)
             val cancellation = CancellationSignal()
             var failure: Throwable? = null
-            val callback = object : DnsResolver.Callback<Collection<InetAddress>>() {
+            val callback = object : DnsResolver.Callback<Collection<InetAddress>> {
                 override fun onAnswer(answer: Collection<InetAddress>, rcode: Int) {
                     try {
                         if (rcode == 0) invokeRequired(exchangeContext, "success", answer.mapNotNull { it.hostAddress }.joinToString("\n"))
